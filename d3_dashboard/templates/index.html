@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="welcome-message">
+        <h2>👋 Welcome to the Factory Dashboard!</h2>
+        <p>Hi there!👷‍♂️ 
+            Great to have you here. 
+            This is your view for everything happening on your factory 🏭</p>
+        <div class="dashboard-features">
+            <p>✨ Here's what you can keep an eye on:</p>
+            <ul>
+                <li>📦 Total production and quality at a glance</li>
+                <li>📈 Production trends over time,  see how things are flowing!</li>
+                <li>🛠️ Workstation activity, know who's busy and who might need help</li>
+                <li>⏱️ Waiting times and downtime, spot issues before they grow</li>
+                <li>🚦 Workstation status</li>
+            </ul>
+            <p>🕒 Use the time selector to focus on a specific period, and toggle workstations to highlight what matters most to you! 🎯</p>
+        </div>
+    </div>
+    
+
+    <div class="header">
+        <h1>The Factory 🏭</h1>
+        <div class="controls">
+            <div class="time-period-selector">
+                <label for="time-period">Select Time Period:</label>
+                <select id="time-period">
+                    <option value="day" selected>Day</option>
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="year">Year</option>
+                </select>
+            </div>
+            <div class="station-filters">
+                <label>Filter Stations:</label>
+                <div id="station-toggles"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>Total Production</h3>
+                <p id="total-production">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Faulty Rate</h3>
+                <p id="faulty-rate">0%</p>
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <h3>Production Trend</h3>
+                <div id="production-trend"></div>
+            </div>
+            <div class="chart-container">
+                <h3>Workstation Occupancy</h3>
+                <div id="occupancy-chart"></div>
+            </div>
+            <div class="chart-container">
+                <h3>Average Waiting Time</h3>
+                <div id="waiting-time-chart"></div>
+            </div>
+            <div class="chart-container">
+                <h3>Workstation Status</h3>
+                <div id="status-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html> 

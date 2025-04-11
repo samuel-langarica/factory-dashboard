@@ -1,0 +1,1 @@
+web: gunicorn d3_dashboard.app:app --bind 0.0.0.0:$PORT 
